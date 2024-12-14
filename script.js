@@ -16,7 +16,7 @@ const itemColors = {
 const chatContainer = document.getElementById("chat-container");
 
 const client = new tmi.Client({
-    channels: ['theruxemburg'], 
+    channels: ['parla'], 
 });
 
 client.connect();
