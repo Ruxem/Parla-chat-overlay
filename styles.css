@@ -7,11 +7,10 @@
     font-family: 'Arial Narrow', sans-serif;
     font-size: 18px;
     color: white;
-    overflow-y: auto; /* Enable scrolling */
+    overflow: hidden;
   }
   
   .chat-line {
-    display: flex;
     align-items: baseline;
     margin-bottom: 4px;
     color: white;
@@ -19,20 +18,24 @@
   
   .timestamp {
     color: gray;
-    margin-right: 5px;
+    margin-right: 10px;
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 14px;
   }
   
   .channel {
+    margin-left: 5px;
     margin-right: 5px;
   }
   
   .username {
-    margin-left: 1px;
+    margin-left: 5px;
   }
   
   .message {
     margin-left: 5px;
     flex-grow: 1;
+    width: 320px;
   }
   
   .message span {
@@ -41,7 +44,6 @@
   
   #chat-container {
     max-height: 100%;
-    overflow-y: auto;
-    height: 100%;
+    overflow: hidden;
   }
   
