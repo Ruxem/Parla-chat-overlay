@@ -33,7 +33,7 @@ client.on('message', (channel, tags, message, self) => {
     const processedText = processItemCommands(message); 
 
     addMessage({
-        timestamp: new Date().toLocaleTimeString([], { hour12: false }),
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
         username: username,
         color: color,
         tag: tag,
