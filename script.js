@@ -71,7 +71,7 @@ function addMessage({ timestamp, username, color, tag, text }) {
     const cleanText = text.replace(/^(W\/|Y\/|1\/|2\/)/, "");
 
     line.innerHTML = `
-      <span class="timestamp">${timestamp}</span>
+      <span class="timestamp">[${timestamp}]</span>
       <span class="channel">${tag}</span> 
       <span class="username" style="color: ${color}">[${username}]</span>: 
       <span class="message">${cleanText}</span>
