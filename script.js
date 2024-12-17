@@ -1,5 +1,5 @@
 const roleColors = {
-    broadcaster: { color: "rgb(118, 197, 255)", tag "[Party Leader]"},
+    broadcaster: { color: "rgb(118, 197, 255)", tag: "[Party Leader]"},
     moderator: { color: "rgb(170, 170, 255)", tag: "[Party]" },
     vip: {color: "rgb(80, 255, 80)", tag: "[Guild Officer]" },
     subscriber: { color: "rgb(64, 255, 64)", tag: "[Guild]" },
