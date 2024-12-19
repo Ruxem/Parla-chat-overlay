@@ -26,7 +26,7 @@ const soundMap = {
     "UndeadFemale": "sounds/UndeadFemale.ogg",
     "TaurenMale": "sounds/TaurenFemale.ogg",
     "TaurenFemale": "sounds/TaurenFemale.ogg",
-    "TrollMale": "sounds/TrollFemale.ogg",
+    "TrollMale": "sounds/TrollMale.ogg",
     "TrollFemale": "sounds/TrollFemale.ogg",
     "BloodElfMale": "sounds/BloodElfMale.ogg",
     "BloodElfFemale": "sounds/BloodElfFemale.ogg",
