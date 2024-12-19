@@ -128,6 +128,7 @@ function playSound(message) {
     
     cooldowns[command] = now; */
     const audio = new Audio(soundFile);
+    audio.volume = 0.5;
     audio.play();
 }
 
