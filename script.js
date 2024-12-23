@@ -83,6 +83,27 @@ client.on('message', (channel, tags, message, self) => {
     });
 });
 
+client.on('subscription', (channel, username, methods, message, userstate) => {
+    handleSubscription(username);
+});
+
+client.on('resub', (channel, username, months, message, userstate, methods) => {
+    handleSubscription(username);
+});
+
+function handleSubscription(username) {
+    const subscriptionMessage = `${username} has joined the guild`;
+
+    addMessage({
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }).replace(/^/, '[').replace(/$/, ']'),
+        username: "",
+        color: "yellow",
+        tag: "",
+        text: subscriptionMessage,
+        isEvent: true
+    });
+}
+
 function handleRollCommand(username) {
     const roll = Math.floor(Math.random() * 100) + 1;
     const rollMessage = `${username} rolls ${roll} (1-100)`;
