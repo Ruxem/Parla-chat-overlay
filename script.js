@@ -83,6 +83,14 @@ client.on('message', (channel, tags, message, self) => {
     });
 });
 
+client.on('subgift', (channel, username, streakMonths, recipient, methods, userstate) => {
+    handleGiftedSubs(username, 1);
+});
+
+client.on('submysterygift', (channel, username, numbOfSubs, methods, userstate) => {
+    handleGiftedSubs(username, numbOfSubs);
+});
+
 client.on('subscription', (channel, username, methods, message, userstate) => {
     handleSubscription(username);
 });
@@ -100,6 +108,19 @@ function handleSubscription(username) {
         color: "yellow",
         tag: "",
         text: subscriptionMessage,
+        isEvent: true
+    });
+}
+
+function handleGiftedSubs(gifter, numOfSubs) {
+    const message = `${gifter} invited ${numOfSubs} player(s) to the guild`;
+
+    addMessage({
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }).replace(/^/, '[').replace(/$/, ']'),
+        username: "",
+        color: "yellow",
+        tag: "",
+        text: message,
         isEvent: true
     });
 }
@@ -142,7 +163,7 @@ function getRoleDetails(text, tags) {
     if (tags.badges?.vip) roles.push(roleColors.vip);
     if (roles.length > 0) return { ...roles[0], isEvent: false };
 
-    return roleColors.default; // Default role
+    return roleColors.default;
 }
 
 const cooldowns = {};
@@ -161,7 +182,7 @@ function playSound(message) {
 
     if (now - lastPlayed < 30000) {
         console.log(`Cooldown active for ${command}. Try again later.`);
-        return; // Exit if the cooldown hasn't expired
+        return;
     }
     
     cooldowns[command] = now; */
