@@ -156,12 +156,13 @@ function addMessage({ timestamp, username, color, tag, text, isEvent }) {
 
     const cleanText = text.replace(/^(E\/|W\/|Y\/|1\/|2\/)/, "");
 
-    const usernameDisplay = isEvent ? username : `[${username}]`;
-    const colon = isEvent ? "" : ":"; // No colon for E/ messages
+    const usernameDisplay = username ? `[${username}]` : "";
+    const tagDisplay = tag ? `${tag} ` : "";
+    const colon = username || tag ? ":" : "";
 
     line.innerHTML = `
       <span class="timestamp">${timestamp}</span>
-      <span class="channel">${tag}</span> 
+      <span class="channel">${tagDisplay}</span> 
       <span class="username" style="color: ${color}">${usernameDisplay}</span>${colon} 
       <span class="message">${cleanText}</span>
     `;
