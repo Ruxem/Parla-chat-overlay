@@ -89,8 +89,9 @@ function handleRollCommand(username) {
 
     addMessage({
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }).replace(/^/, '[').replace(/$/, ']'),
+        username: "",
         color: "yellow",
-        tag: "[Roll]",
+        tag: "",
         text: rollMessage,
         isEvent: false
     });
