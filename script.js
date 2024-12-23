@@ -64,9 +64,13 @@ client.on('message', (channel, tags, message, self) => {
 
     if (message.startsWith("L/")) {
         playSound(message);
-        return; // Stop here to ensure the message is not added to the overlay
+        return;
     }
 
+    if (message.startsWith("ROLL/")) {
+        handleRollCommand(username);
+        return;
+    }
     const processedText = processItemCommands(message); 
 
     addMessage({
@@ -79,6 +83,19 @@ client.on('message', (channel, tags, message, self) => {
     });
 });
 
+function handleRollCommand(username) {
+    const roll = Math.floor(Math.random() * 100) + 1;
+    const rollMessage = `${username} rolls ${roll} (1-100)`;
+
+    addMessage({
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }).replace(/^/, '[').replace(/$/, ']'),
+        username: "System",
+        color: "yellow",
+        tag: "[Roll]",
+        text: rollMessage,
+        isEvent: false
+    });
+}
 
 function getRoleDetails(text, tags) {
     if (text.startsWith("E/")) {
