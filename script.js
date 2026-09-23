@@ -189,12 +189,12 @@ client.on('message', (channel, tags, message, self) => {
     const username = tags['display-name'] || tags.username;
     const { color, tag, isEvent } = getRoleDetails(message, tags);
 
-    if (message.startsWith("L/")) {
+    if (message.startsWith("[L]")) {
         playSound(message);
         return;
     }
 
-    if (message.startsWith("ROLL/")) {
+    if (message.startsWith("[ROLL]")) {
         handleRollCommand(username);
         return;
     }
@@ -234,11 +234,11 @@ function getTime() {
 }
 
 function getRoleDetails(text, tags) {
-    if (text.startsWith("E/")) return { ...roleColors.event, isEvent: true };
-    if (text.startsWith("W/")) return roleColors.wFrom;
-    if (text.startsWith("Y/")) return roleColors.yell;
-    if (text.startsWith("1/")) return roleColors.general;
-    if (text.startsWith("2/")) return roleColors.trade;
+    if (text.startsWith("[E]")) return { ...roleColors.event, isEvent: true };
+    if (text.startsWith("[W]")) return roleColors.wFrom;
+    if (text.startsWith("[Y]")) return roleColors.yell;
+    if (text.startsWith("[1]")) return roleColors.general;
+    if (text.startsWith("[2]")) return roleColors.trade;
 
     if (tags.badges?.broadcaster) return roleColors.broadcaster;
     if (tags.badges?.moderator) return roleColors.moderator;
