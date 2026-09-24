@@ -249,7 +249,7 @@ function getRoleDetails(text, tags) {
 }
 
 function playSound(message) {
-    const command = message.replace("L/", "").trim();
+    const command = message.replace("[L]", "").trim();
     const soundFile = soundMap[command];
     if (!soundFile) return;
 
@@ -262,8 +262,8 @@ function addMessage({ timestamp, username, color, tag, text }) {
     const line = document.createElement("div");
     line.className = "chat-line";
     line.style.color = color;
-
-    const cleanText = text.replace(/^(E\/|W\/|Y\/|1\/|2\/)/, "");
+    
+    const cleanText = text.replace(/^\[(?:E|W|Y|1|2)\]/, "");
 
     const usernameDisplay = username ? `[${username}]` : "";
     const tagDisplay = tag ? `${tag} ` : "";
