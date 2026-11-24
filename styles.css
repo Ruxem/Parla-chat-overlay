@@ -1,7 +1,7 @@
 #wow-chat-overlay {
     width: 594px;
     height: 204px;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     padding: 10px;
     font-family: 'Arial Narrow', sans-serif;
